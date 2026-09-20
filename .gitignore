@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Large datasets / checkpoints / logs (too big for git)
+output/*.h5
+output/checkpoints/
+output/logs/
+output/results_ablation*/
+output/results_xdataset/
+*.pt
+*.ckpt
+
+# LaTeX build artifacts (keep source + final PDF, drop intermediates)
+*.log
+*.spl
+*.out
+*.bak
+*.toc
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Editor / review scratch
+_r*.png
+page*.png
+verify_tables/
+out.txt
+manifest.txt
+changelog.txt

@@ -1,0 +1,51 @@
+# TP-Net 实验配置
+# 论文：Self-Supervised Pretrained Encrypted Traffic Representations
+#       for Few-Shot Threat Detection
+
+defaults:
+  seed: 42
+  device: auto  # auto | cpu | cuda | xpu
+  embed_dim: 128
+  proj_dim: 128
+  batch_size: 256
+  num_workers: 0
+  num_episodes: 600
+  num_seeds: 5
+
+pretrain:
+  algo: simclr          # simclr | moco
+  epochs: 50
+  lr: 3.0e-4
+  weight_decay: 1.0e-4
+  temperature: 0.1
+  aug_preset: medium    # none | weak | medium | strong
+  save_every: 5
+
+fewshot:
+  algo: protonet        # protonet | matching | linearprobe
+  n_way: 5
+  k_shot: 5
+  q_query: 15
+  max_samples: 20000
+
+zeroshot:
+  novel_classes: 2
+  n_way: 5
+  k_shot: 5
+  q_query: 15
+
+ablation:
+  presets: [none, weak, medium, strong]
+  epochs: 20
+
+xdataset:
+  pairs:
+    - [cic, ustc]
+    - [ustc, cic]
+    - [cic, iscx]
+    - [iscx, cic]
+
+datasets:
+  cic: output/cic_full.h5
+  ustc: output/ustc_full.h5
+  iscx: output/iscx_full.h5
