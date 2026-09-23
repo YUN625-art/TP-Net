@@ -1,6 +1,6 @@
 # TP-Net: Self-Supervised Pretrained Encrypted Traffic Representations for Few-Shot Threat Detection
 
-> Paper artifact — companion code for the **Elsevier preprint** `paper/TP-Net.pdf` (34 pages).
+> Paper artifact — companion code for the **MDPI Sensors** submission `paper/TP-Net.pdf` (23 pages).
 > Goal: reproducible evidence for the SSL + few-shot encrypted-traffic novel-attack claim.
 
 ## 1. What's in this repository
@@ -10,11 +10,10 @@ TP-Net/
 ├── README.md                     # this file
 ├── .gitignore
 ├── requirements.txt
-├── paper/                        # LaTeX source + rendered PDF
+├── paper/                        # LaTeX source + rendered PDF (MDPI Sensors class)
 │   ├── TP-Net.tex
 │   ├── TP-Net.pdf
 │   ├── TP-Net.bbl / .aux
-│   ├── elsarticle-*.bst / .dtx / .ins
 │   └── figures/                  # PNG / PDF figures embedded in the paper
 ├── configs/
 │   └── default.yaml              # all hyper-parameters used in the paper
@@ -117,19 +116,22 @@ python experiments/run_zeroshot.py --dataset iscx --novel_classes 1
 ```bash
 cd paper
 pdflatex TP-Net.tex        # pass 1
-bibtex   TP-Net            # resolve \cite
 pdflatex TP-Net.tex        # pass 2 (cross-refs)
 pdflatex TP-Net.tex        # pass 3 (final pagination)
 ```
+
+The MDPI Sensors class is shipped with the project (`Definitions/mdpi.cls` is bundled
+inside the official `mdpi.cls` distribution and is not checked into this repo). The
+LaTeX source embeds `\begin{thebibliography}` directly, so no `bibtex` pass is needed.
 
 ## 4. Citation
 
 ```bibtex
 @article{tpnet2026,
   title  = {TP-Net: Self-Supervised Pretrained Encrypted Traffic
-            Representations for Few-Shot Threat Detection},
+            Representations for Few-Shot Threat Detection in IoT and Sensor Networks},
   author = {Yao, X. and Feng, Y. and Wang, Q.},
-  journal= {Computers \& Security (Elsevier)},
+  journal= {Sensors (MDPI)},
   year   = {2026},
   note   = {Under review}
 }
